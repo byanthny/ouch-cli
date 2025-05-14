@@ -22,11 +22,19 @@ func main() {
         command := strings.TrimSpace(scanner.Text())
         
         if command == "exit" {
+
             fmt.Println("the end.")
             break
-        }
+
+        } else if strings.HasPrefix(command, "-") {
         
-        fmt.Printf("command: %s\n", command)
+        	fmt.Printf("command: %s\n", command)
+			break
+		
+		}
+
+		fmt.Println("not a command")
+
     }
     
     if err := scanner.Err(); err != nil {
