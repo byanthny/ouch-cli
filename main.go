@@ -9,11 +9,12 @@ import (
 
 func main() {
     fmt.Println("ouch...")
+	// fmt.Println("use exit to quit")
     
     scanner := bufio.NewScanner(os.Stdin)
     
     for {
-        fmt.Print("_ ")
+        fmt.Print("> ")
         
         if !scanner.Scan() {
             break
@@ -21,19 +22,21 @@ func main() {
         
         command := strings.TrimSpace(scanner.Text())
         
-        if command == "exit" {
-
-            fmt.Println("the end.")
-            break
-
-        } else if strings.HasPrefix(command, "-") {
-        
-        	fmt.Printf("command: %s\n", command)
-			break
-		
+		switch {
+			case command == "exit":
+				fmt.Println("the end.")
+				return
+			case strings.HasPrefix(command, "-"):
+				subCommand := strings.TrimPrefix(command, "-")
+				switch subCommand {
+					case "help":
+					fmt.Println("lol. use exit to quit.")
+					default:
+					fmt.Printf("unknown command: %s\n", subCommand)
+				}
+			default:
+				fmt.Println("use - for commands, e.g. -help")
 		}
-
-		fmt.Println("not a command")
 
     }
     
