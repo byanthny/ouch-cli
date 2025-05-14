@@ -4,7 +4,7 @@ CLI version of ouch built with Go
 
 ## Description
 
-Welcome to Ouch CLI, a command-line application based on //TODO OUCH LINK
+Welcome to Ouch CLI, a command-line application based on [Ouch](https://github.com/byanthny/Ouch)
 
 ## Current Progress
 
